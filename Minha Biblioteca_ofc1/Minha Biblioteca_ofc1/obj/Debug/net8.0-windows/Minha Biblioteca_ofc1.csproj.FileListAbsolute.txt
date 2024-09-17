@@ -1,0 +1,60 @@
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Minha Biblioteca_ofc1.exe
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Minha Biblioteca_ofc1.deps.json
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Minha Biblioteca_ofc1.runtimeconfig.json
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Minha Biblioteca_ofc1.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Minha Biblioteca_ofc1.pdb
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha Biblioteca_ofc1.csproj.GenerateResource.cache
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha Biblioteca_ofc1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha Biblioteca_ofc1.AssemblyInfoInputs.cache
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha Biblioteca_ofc1.AssemblyInfo.cs
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha Biblioteca_ofc1.csproj.CoreCompileInputs.cache
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha Biblioteca_ofc1.sourcelink.json
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha Biblioteca_ofc1.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\refint\Minha Biblioteca_ofc1.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha Biblioteca_ofc1.pdb
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha Biblioteca_ofc1.genruntimeconfig.cache
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\ref\Minha Biblioteca_ofc1.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Microsoft.Data.Sqlite.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Sqlite.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\SQLitePCLRaw.batteries_v2.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\SQLitePCLRaw.core.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\browser-wasm\nativeassets\net8.0\e_sqlite3.a
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libe_sqlite3.so
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libe_sqlite3.so
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\linux-armel\native\libe_sqlite3.so
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\linux-mips64\native\libe_sqlite3.so
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\linux-musl-arm\native\libe_sqlite3.so
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\linux-musl-arm64\native\libe_sqlite3.so
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\linux-musl-x64\native\libe_sqlite3.so
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\linux-ppc64le\native\libe_sqlite3.so
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\linux-s390x\native\libe_sqlite3.so
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libe_sqlite3.so
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\linux-x86\native\libe_sqlite3.so
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\maccatalyst-arm64\native\libe_sqlite3.dylib
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\maccatalyst-x64\native\libe_sqlite3.dylib
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\osx-arm64\native\libe_sqlite3.dylib
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\osx-x64\native\libe_sqlite3.dylib
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\win-arm\native\e_sqlite3.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\win-arm64\native\e_sqlite3.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\win-x64\native\e_sqlite3.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\bin\Debug\net8.0-windows\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha Biblioteca_ofc1.csproj.AssemblyReference.cache
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha_Biblioteca_ofc1.Cadastro.resources
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha_Biblioteca_ofc1.Consulta.resources
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha_Biblioteca_ofc1.Login.resources
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha_Biblioteca_ofc1.Tela_Principal.resources
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha Bi.874410F4.Up2Date
