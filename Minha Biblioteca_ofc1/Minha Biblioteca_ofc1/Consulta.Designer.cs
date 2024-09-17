@@ -47,15 +47,18 @@
             label3 = new Label();
             label6 = new Label();
             label7 = new Label();
+            dataGridView_Clientes = new DataGridView();
+            btn_Pesquisa = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridView_Clientes).BeginInit();
             SuspendLayout();
             // 
             // Lista
             // 
             Lista.FormattingEnabled = true;
             Lista.ItemHeight = 15;
-            Lista.Location = new Point(12, 224);
+            Lista.Location = new Point(292, 209);
             Lista.Name = "Lista";
-            Lista.Size = new Size(776, 214);
+            Lista.Size = new Size(496, 229);
             Lista.TabIndex = 15;
             Lista.SelectedIndexChanged += Lista_SelectedIndexChanged;
             // 
@@ -93,7 +96,7 @@
             // 
             // btn_Buscar
             // 
-            btn_Buscar.Location = new Point(109, 113);
+            btn_Buscar.Location = new Point(509, 176);
             btn_Buscar.Name = "btn_Buscar";
             btn_Buscar.Size = new Size(75, 23);
             btn_Buscar.TabIndex = 20;
@@ -103,7 +106,7 @@
             // 
             // btn_Editar
             // 
-            btn_Editar.Location = new Point(602, 195);
+            btn_Editar.Location = new Point(590, 176);
             btn_Editar.Name = "btn_Editar";
             btn_Editar.Size = new Size(75, 23);
             btn_Editar.TabIndex = 21;
@@ -113,7 +116,7 @@
             // 
             // Excluir
             // 
-            Excluir.Location = new Point(683, 195);
+            Excluir.Location = new Point(671, 176);
             Excluir.Name = "Excluir";
             Excluir.Size = new Size(75, 23);
             Excluir.TabIndex = 22;
@@ -123,7 +126,7 @@
             // 
             // btn_Voltar
             // 
-            btn_Voltar.Location = new Point(109, 142);
+            btn_Voltar.Location = new Point(22, 176);
             btn_Voltar.Name = "btn_Voltar";
             btn_Voltar.Size = new Size(75, 23);
             btn_Voltar.TabIndex = 23;
@@ -211,12 +214,36 @@
             label7.TabIndex = 29;
             label7.Text = "Nome";
             // 
+            // dataGridView_Clientes
+            // 
+            dataGridView_Clientes.AllowUserToAddRows = false;
+            dataGridView_Clientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView_Clientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView_Clientes.Location = new Point(10, 209);
+            dataGridView_Clientes.Name = "dataGridView_Clientes";
+            dataGridView_Clientes.ReadOnly = true;
+            dataGridView_Clientes.Size = new Size(276, 229);
+            dataGridView_Clientes.TabIndex = 39;
+            dataGridView_Clientes.CellContentClick += dataGridView_Clientes_CellContentClick;
+            // 
+            // btn_Pesquisa
+            // 
+            btn_Pesquisa.Location = new Point(103, 177);
+            btn_Pesquisa.Name = "btn_Pesquisa";
+            btn_Pesquisa.Size = new Size(75, 23);
+            btn_Pesquisa.TabIndex = 40;
+            btn_Pesquisa.Text = "Pesquisar";
+            btn_Pesquisa.UseVisualStyleBackColor = true;
+            btn_Pesquisa.Click += btn_Pesquisa_Click;
+            // 
             // Consulta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(btn_Pesquisa);
+            Controls.Add(dataGridView_Clientes);
             Controls.Add(Endereço);
             Controls.Add(Telefone);
             Controls.Add(Email);
@@ -238,6 +265,8 @@
             Controls.Add(Lista);
             Name = "Consulta";
             Text = "Consulta";
+            Load += Consulta_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView_Clientes).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -263,5 +292,7 @@
         private Label label3;
         private Label label6;
         private Label label7;
+        private DataGridView dataGridView_Clientes;
+        private Button btn_Pesquisa;
     }
 }

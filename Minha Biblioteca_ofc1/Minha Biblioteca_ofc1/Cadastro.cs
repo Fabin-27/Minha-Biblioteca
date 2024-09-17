@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -55,13 +56,14 @@ namespace Minha_Biblioteca_ofc1
 
         private void btn_Salvar_Click(object sender, EventArgs e)
         {
-            String insertQuery = $"INSERT INTO Cliente (Nome, CPF, Email, Telefone, Endereço) " +
-                                 $" VALUES  ('{Nome.Text}', '{CPF.Text}', '{Email.Text}', '{Telefone.Text}', '{Endereço.Text}')";
+            if (ValidarCampos())
+            {
+                String insertQuery = $"INSERT INTO Cliente (Nome, CPF, Email, Telefone, Endereço) " +
+                                     $" VALUES  ('{Nome.Text}', '{CPF.Text}', '{Email.Text}', '{Telefone.Text}', '{Endereço.Text}')";
 
-            connectionManager.ExecuteNonQuery(insertQuery);
-
-            Atualizar_Cadastros();
-
+                connectionManager.ExecuteNonQuery(insertQuery);
+                Atualizar_Cadastros();
+            }
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -82,6 +84,29 @@ namespace Minha_Biblioteca_ofc1
 
             Nome.Focus();
 
+        }
+
+        private bool ValidarCampos()
+        {
+            if (!Regex.IsMatch(CPF.Text, @"^\d+$"))
+            {
+                MessageBox.Show("CPF deve conter apenas números.");
+                return false;
+            }
+
+            if (!Regex.IsMatch(Email.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                MessageBox.Show("Email inválido.");
+                return false;
+            }
+
+            if (!Regex.IsMatch(Telefone.Text, @"^\d+$"))
+            {
+                MessageBox.Show("Telefone deve conter apenas números.");
+                return false;
+            }
+
+            return true;
         }
 
         private void label5_Click(object sender, EventArgs e)

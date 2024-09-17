@@ -22,6 +22,7 @@ namespace Minha_Biblioteca_ofc1
 
             string dbPath = "C:\\Users\\Loure\\source\\repos\\Minha Biblioteca_ofc1\\Minha Biblioteca_ofc1\\bin\\Biblioteca.db";
             connectionManager = new Conexão(dbPath);
+            //CarregarTodosClientes();
         }
 
         private void btn_Buscar_Click(object sender, EventArgs e)
@@ -197,7 +198,115 @@ namespace Minha_Biblioteca_ofc1
                 }
             }
         }
+
+        private void btn_Pesquisa_Click(object sender, EventArgs e)
+        {
+
+
+            string busca = btn_Pesquisa.Text.Trim();
+            if (!string.IsNullOrEmpty(busca))
+            {
+                BuscarClientes(busca);
+
+            }
+            else
+            {
+                CarregarTodosClientes();
+            }
+            BuscarClientes(busca);
+            CarregarTodosClientes();
+        }
+
+        private void CarregarTodosClientes()
+        {
+            string selectQuery = "SELECT * FROM Cliente";
+            DataTable dtClientes = new DataTable();
+
+            using (var connection = connectionManager.GetConnection())
+            {
+                connectionManager.OpenConnection(connection);
+
+                using (var command = new SqliteCommand(selectQuery, connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        dtClientes.Load(reader);                    }
+                }
+
+                connectionManager.CloseConnection(connection);
+            }
+
+            foreach (DataRow row in dtClientes.Rows)
+            {
+                string clienteInfo = $"ID: {row["Id"]}, Nome: {row["Nome"]}, CPF: {row["CPF"]}";
+                //MessageBox.Show(clienteInfo);
+            }
+
+            dataGridView_Clientes.DataSource = dtClientes;
+
+            if (dtClientes.Rows.Count == 0)
+            {
+                MessageBox.Show("Nenhum cliente encontrado.");
+            }
+
+            foreach (DataRow row in dtClientes.Rows)
+            {
+                string clienteInfo = $"ID: {row["Id"]}, Nome: {row["Nome"]}, CPF: {row["CPF"]}";
+                //MessageBox.Show(clienteInfo);
+            }
+
+            // Defina o DataSource do DataGridView
+            dataGridView_Clientes.DataSource = dtClientes;
+
+            // Verifique se há dados
+            if (dtClientes.Rows.Count == 0)
+            {
+                MessageBox.Show("Nenhum cliente encontrado.");
+            }
+        }
+
+        private void BuscarClientes(string nomeOuCpf)
+        {
+            string selectQuery = "SELECT * FROM Cliente WHERE Nome LIKE @Busca OR CPF LIKE @Busca";
+            DataTable dtClientes = new DataTable();
+
+            using (var connection = connectionManager.GetConnection())
+            {
+                connectionManager.OpenConnection(connection);
+
+                using (var command = new SqliteCommand(selectQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@Busca", "%" + nomeOuCpf + "%");
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        dtClientes.Load(reader);
+                    }
+                }
+
+                connectionManager.CloseConnection(connection);
+            }
+
+            foreach (DataRow row in dtClientes.Rows)
+            {
+                string clienteInfo = $"ID: {row["Id"]}, Nome: {row["Nome"]}, CPF: {row["CPF"]}";
+                //MessageBox.Show(clienteInfo);
+            }
+
+            dataGridView_Clientes.DataSource = dtClientes;
+        }
+
+
+        
+
+        private void Consulta_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView_Clientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
-
-
 }
