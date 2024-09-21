@@ -58,3 +58,4 @@ C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debu
 C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha_Biblioteca_ofc1.Login.resources
 C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha_Biblioteca_ofc1.Tela_Principal.resources
 C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha Bi.874410F4.Up2Date
+C:\Users\Loure\source\repos\Minha Biblioteca_ofc1\Minha Biblioteca_ofc1\obj\Debug\net8.0-windows\Minha_Biblioteca_ofc1.Properties.Resources.resources

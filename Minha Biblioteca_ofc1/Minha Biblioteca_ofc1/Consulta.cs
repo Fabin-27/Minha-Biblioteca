@@ -25,11 +25,6 @@ namespace Minha_Biblioteca_ofc1
             //CarregarTodosClientes();
         }
 
-        private void btn_Buscar_Click(object sender, EventArgs e)
-        {
-            Atualizar_Cadastros();
-        }
-
         public void Atualizar_Cadastros()
         {
 
@@ -57,95 +52,6 @@ namespace Minha_Biblioteca_ofc1
                 connectionManager.CloseConnection(connection);
             }
         }
-
-        private void btn_Editar_Click(object sender, EventArgs e)
-        {
-
-            if (Lista.SelectedIndex != -1)
-            {
-                // Extrair o ID do cliente selecionado na lista
-                string selectedItem = Lista.SelectedItem.ToString();
-                string idString = selectedItem.Split(':')[0]; // Extrai o ID antes do ":"
-
-                if (int.TryParse(idString, out int id))
-                {
-                    // Atualizar os dados do cliente no banco de dados
-                    string updateQuery = $"UPDATE Cliente SET Nome = @Nome, CPF = @CPF, Email = @Email, Telefone = @Telefone, Endereço = @Endereço WHERE Id = @Id";
-
-                    using (var connection = connectionManager.GetConnection())
-                    {
-                        connectionManager.OpenConnection(connection);
-
-                        using (var command = new SqliteCommand(updateQuery, connection))
-                        {
-                            // Definir os parâmetros com os novos valores dos TextBoxes
-                            command.Parameters.AddWithValue("@Nome", Nome.Text.Trim());
-                            command.Parameters.AddWithValue("@CPF", CPF.Text.Trim());
-                            command.Parameters.AddWithValue("@Email", Email.Text.Trim());
-                            command.Parameters.AddWithValue("@Telefone", Telefone.Text.Trim());
-                            command.Parameters.AddWithValue("@Endereço", Endereço.Text.Trim());
-                            command.Parameters.AddWithValue("@Id", id);
-
-                            int rowsAffected = command.ExecuteNonQuery();
-
-                            if (rowsAffected > 0)
-                            {
-                                MessageBox.Show("Cliente atualizado com sucesso!");
-                                Atualizar_Cadastros(); // Atualiza a lista após edição
-                            }
-                            else
-                            {
-                                MessageBox.Show("Erro ao atualizar o cliente.");
-                            }
-                        }
-
-                        connectionManager.CloseConnection(connection);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Erro ao extrair o ID do cliente.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Selecione um cliente para editar.");
-            }
-
-
-        }
-
-        private void Excluir_Click(object sender, EventArgs e)
-        {
-            {
-                if (Lista.SelectedIndex != -1)
-                {
-                    string selectedItem = Lista.SelectedItem.ToString();
-                    string idString = selectedItem.Split(':')[0];
-
-                    if (int.TryParse(idString, out int id))
-                    {
-                        string deleteQuery = $"DELETE FROM Cliente WHERE Id = {id}";
-
-                        connectionManager.ExecuteNonQuery(deleteQuery);
-
-                        MessageBox.Show("Cliente deletado com sucesso!");
-
-                        Atualizar_Cadastros();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erro ao extrair o ID do cliente.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Selecione um cliente para excluir.");
-                }
-            }
-
-        }
-
 
         private void btn_Voltar_Click(object sender, EventArgs e)
         {
@@ -202,19 +108,33 @@ namespace Minha_Biblioteca_ofc1
         private void btn_Pesquisa_Click(object sender, EventArgs e)
         {
 
+            string busca = "";
+            string cpf = "";
 
-            string busca = btn_Pesquisa.Text.Trim();
-            if (!string.IsNullOrEmpty(busca))
-            {
-                BuscarClientes(busca);
 
-            }
-            else
+            busca = Nome_grid.Text.Trim();
+            cpf = CPF_grid.Text.Trim();
+
+            if (!string.IsNullOrEmpty(busca) && string.IsNullOrEmpty(cpf))
             {
-                CarregarTodosClientes();
+
+                BuscarClientes(busca, null, 1);
             }
-            BuscarClientes(busca);
-            CarregarTodosClientes();
+            if (string.IsNullOrEmpty(busca) && !string.IsNullOrEmpty(cpf))
+            {
+
+                BuscarClientes(null, cpf, 2);
+            }
+            if (!string.IsNullOrEmpty(busca) && !string.IsNullOrEmpty(cpf))
+            {
+
+                BuscarClientes(busca, cpf, 3);
+            }
+            if (string.IsNullOrEmpty(busca) && string.IsNullOrEmpty(cpf))
+            {
+
+                MessageBox.Show($"Por favor insira um nome ou um cpf");
+            }
         }
 
         private void CarregarTodosClientes()
@@ -230,7 +150,8 @@ namespace Minha_Biblioteca_ofc1
                 {
                     using (var reader = command.ExecuteReader())
                     {
-                        dtClientes.Load(reader);                    }
+                        dtClientes.Load(reader);
+                    }
                 }
 
                 connectionManager.CloseConnection(connection);
@@ -265,9 +186,26 @@ namespace Minha_Biblioteca_ofc1
             }
         }
 
-        private void BuscarClientes(string nomeOuCpf)
+        private void BuscarClientes(string nome = null, string Cpf = null, int qualQueryUtilizar = 0)
         {
-            string selectQuery = "SELECT * FROM Cliente WHERE Nome LIKE @Busca OR CPF LIKE @Busca";
+            string selectQuery = "";
+
+            switch (qualQueryUtilizar)
+            {
+                case 1:
+                    selectQuery = $"SELECT * FROM Cliente WHERE Nome LIKE '%{nome}%'";
+                    break;
+
+                case 2:
+                    selectQuery = $"SELECT * FROM Cliente WHERE CPF LIKE '%{Cpf}%'";
+                    break;
+                case 3:
+                    selectQuery = $"SELECT * FROM Cliente WHERE Nome LIKE '%{nome}%' OR CPF LIKE '%{Cpf}%'";
+                    break;
+                default:
+                    break;
+            }
+
             DataTable dtClientes = new DataTable();
 
             using (var connection = connectionManager.GetConnection())
@@ -276,7 +214,7 @@ namespace Minha_Biblioteca_ofc1
 
                 using (var command = new SqliteCommand(selectQuery, connection))
                 {
-                    command.Parameters.AddWithValue("@Busca", "%" + nomeOuCpf + "%");
+                    // command.Parameters.AddWithValue("@Busca", "%" + nomeOuCpf + "%");
 
                     using (var reader = command.ExecuteReader())
                     {
@@ -296,9 +234,6 @@ namespace Minha_Biblioteca_ofc1
             dataGridView_Clientes.DataSource = dtClientes;
         }
 
-
-        
-
         private void Consulta_Load(object sender, EventArgs e)
         {
 
@@ -307,6 +242,94 @@ namespace Minha_Biblioteca_ofc1
         private void dataGridView_Clientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btn_Buscar_Click_1(object sender, EventArgs e)
+        {
+            Atualizar_Cadastros();
+        }
+
+        private void btn_Editar_Click_1(object sender, EventArgs e)
+        {
+            if (Lista.SelectedIndex != -1)
+            {
+                string selectedItem = Lista.SelectedItem.ToString();
+                string idString = selectedItem.Split(':')[0];
+
+                if (int.TryParse(idString, out int id))
+                {
+                    // Atualizar os dados do cliente no banco de dados
+                    string updateQuery = $"UPDATE Cliente SET Nome = @Nome, CPF = @CPF, Email = @Email, Telefone = @Telefone, Endereço = @Endereço WHERE Id = @Id";
+
+                    using (var connection = connectionManager.GetConnection())
+                    {
+                        connectionManager.OpenConnection(connection);
+
+                        using (var command = new SqliteCommand(updateQuery, connection))
+                        {
+                            command.Parameters.AddWithValue("@Nome", Nome.Text.Trim());
+                            command.Parameters.AddWithValue("@CPF", CPF.Text.Trim());
+                            command.Parameters.AddWithValue("@Email", Email.Text.Trim());
+                            command.Parameters.AddWithValue("@Telefone", Telefone.Text.Trim());
+                            command.Parameters.AddWithValue("@Endereço", Endereço.Text.Trim());
+                            command.Parameters.AddWithValue("@Id", id);
+
+                            int rowsAffected = command.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Cliente atualizado com sucesso!");
+                                Atualizar_Cadastros();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro ao atualizar o cliente.");
+                            }
+                        }
+
+                        connectionManager.CloseConnection(connection);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao extrair o ID do cliente.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione um cliente para editar.");
+            }
+
+        }
+
+        private void Excluir_Click_1(object sender, EventArgs e)
+        {
+            {
+                if (Lista.SelectedIndex != -1)
+                {
+                    string selectedItem = Lista.SelectedItem.ToString();
+                    string idString = selectedItem.Split(':')[0];
+
+                    if (int.TryParse(idString, out int id))
+                    {
+                        string deleteQuery = $"DELETE FROM Cliente WHERE Id = {id}";
+
+                        connectionManager.ExecuteNonQuery(deleteQuery);
+
+                        MessageBox.Show("Cliente deletado com sucesso!");
+
+                        Atualizar_Cadastros();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao extrair o ID do cliente.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecione um cliente para excluir.");
+                }
+            }
         }
     }
 }

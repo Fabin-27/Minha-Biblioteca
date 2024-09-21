@@ -83,7 +83,6 @@ namespace Minha_Biblioteca_ofc1
 
                 if (loginValido)
                 {
-                    MessageBox.Show("Login bem-sucedido!");
                     Tela_Principal tel = new Tela_Principal();
                     tel.Show();
                     this.Hide();

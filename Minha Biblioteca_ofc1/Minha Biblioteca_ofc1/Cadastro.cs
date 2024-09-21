@@ -86,11 +86,21 @@ namespace Minha_Biblioteca_ofc1
 
         }
 
+        
+
         private bool ValidarCampos()
         {
+
             if (!Regex.IsMatch(CPF.Text, @"^\d+$"))
             {
                 MessageBox.Show("CPF deve conter apenas números.");
+                return false;
+            }
+
+
+            if (CPF.Text.Length != 11 || !CPF.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("CPF deve conter 11 dígitos e apenas números.");
                 return false;
             }
 
@@ -100,14 +110,16 @@ namespace Minha_Biblioteca_ofc1
                 return false;
             }
 
-            if (!Regex.IsMatch(Telefone.Text, @"^\d+$"))
+            if (!Regex.IsMatch(Telefone.Text, @"^\(?\d{2}\)?\s?\d{5}-?\d{4}$"))
             {
-                MessageBox.Show("Telefone deve conter apenas números.");
+                MessageBox.Show("Formato de telefone inválido. Aceito: (XX) 9XXXX-XXXX ou XX9XXXX-XXXX.");
                 return false;
             }
 
+
             return true;
         }
+
 
         private void label5_Click(object sender, EventArgs e)
         {
