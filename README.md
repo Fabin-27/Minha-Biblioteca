@@ -59,4 +59,4 @@ para retornar uma listagem destes clientes afim de que seja possível fazer edi�
 ![Captura de tela 2024-09-21 161809](https://github.com/user-attachments/assets/d5808bbf-9f87-40b7-93c4-fc7b442b948d)
 
 
-Projeto desenvolvido por Fabio Lourenço F Ataide
+Projeto desenvolvido por Fabio Lourenço F Ataide e João Victor Marchiori da Silva
