@@ -86,8 +86,6 @@ namespace Minha_Biblioteca_ofc1
 
         }
 
-        
-
         private bool ValidarCampos()
         {
 
@@ -119,7 +117,6 @@ namespace Minha_Biblioteca_ofc1
 
             return true;
         }
-
 
         private void label5_Click(object sender, EventArgs e)
         {

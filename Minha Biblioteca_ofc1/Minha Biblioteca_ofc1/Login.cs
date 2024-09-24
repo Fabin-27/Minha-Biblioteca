@@ -2,6 +2,7 @@ using Microsoft.Data.Sqlite;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+
 namespace Minha_Biblioteca_ofc1
 {
     public partial class Login : Form
@@ -24,11 +25,9 @@ namespace Minha_Biblioteca_ofc1
                 {
                     connection.Open();
 
-                    // Consulta para verificar o login
                     string selectQuery = "SELECT Usuario, Senha FROM Login WHERE Usuario = @Usuario AND Senha = @Senha";
                     using (var command = new SqliteCommand(selectQuery, connection))
                     {
-                        // Adiciona parâmetros para evitar SQL Injection
                         command.Parameters.AddWithValue("@Usuario", usuario.Trim());
                         command.Parameters.AddWithValue("@Senha", senha.Trim());
 
@@ -39,7 +38,6 @@ namespace Minha_Biblioteca_ofc1
                                 string usuarioEncontrado = reader["Usuario"].ToString();
                                 string senhaEncontrada = reader["Senha"].ToString();
 
-                                // Verifica se os dados correspondem
                                 if (usuarioEncontrado.Equals(usuario.Trim(), StringComparison.OrdinalIgnoreCase) &&
                                     senhaEncontrada.Equals(senha.Trim(), StringComparison.OrdinalIgnoreCase))
                                 {
@@ -55,20 +53,11 @@ namespace Minha_Biblioteca_ofc1
                 MessageBox.Show($"Erro ao validar login: {ex.Message}");
             }
 
-            // Se não encontrou o login ou os dados não correspondem
             return false;
         }
 
         private void btn_Logar_Click(object sender, EventArgs e)
         {
-
-            //TestarConexaoSimplificado();
-            //VerificarTabelaLogin();
-            //AdicionarDadosDeTeste();
-            //MostrarConteudoTabelaLogin();
-            
-
-
 
             if (string.IsNullOrWhiteSpace(txb_Usuario.Text) || string.IsNullOrWhiteSpace(txb_Senha.Text))
             {
@@ -100,7 +89,6 @@ namespace Minha_Biblioteca_ofc1
 
         }
 
-
         private void TestarConexaoSimplificado()
         {
             try
@@ -130,13 +118,11 @@ namespace Minha_Biblioteca_ofc1
                     connection.Open();
                     MessageBox.Show("Conexão com o banco de dados estabelecida com sucesso!");
 
-                    // Consultar se a tabela existe
                     string query = "SELECT name FROM sqlite_master WHERE type='table' AND name='Login'";
                     using (var command = new SqliteCommand(query, connection))
                     {
                         object result = command.ExecuteScalar();
 
-                        // Mensagem de depuração para verificar o resultado
                         if (result != null)
                         {
                             MessageBox.Show("Tabela 'Login' existe.");
@@ -165,7 +151,6 @@ namespace Minha_Biblioteca_ofc1
                     connection.Open();
                     MessageBox.Show("Conexão com o banco de dados estabelecida.");
 
-                    // Consulta para recuperar todos os registros da tabela Login
                     string selectQuery = "SELECT Usuario, Senha FROM Login";
                     using (var command = new SqliteCommand(selectQuery, connection))
                     {
@@ -174,7 +159,6 @@ namespace Minha_Biblioteca_ofc1
                             var messageBuilder = new StringBuilder();
                             messageBuilder.AppendLine("Conteúdo da tabela Login:");
 
-                            // Verifica se o reader contém registros
                             if (!reader.HasRows)
                             {
                                 messageBuilder.AppendLine("A tabela 'Login' está vazia.");

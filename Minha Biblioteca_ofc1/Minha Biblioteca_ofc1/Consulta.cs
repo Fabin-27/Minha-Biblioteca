@@ -22,7 +22,6 @@ namespace Minha_Biblioteca_ofc1
 
             string dbPath = "C:\\Users\\Loure\\source\\repos\\Minha Biblioteca_ofc1\\Minha Biblioteca_ofc1\\bin\\Biblioteca.db";
             connectionManager = new Conexão(dbPath);
-            //CarregarTodosClientes();
         }
 
         public void Atualizar_Cadastros()
@@ -65,13 +64,11 @@ namespace Minha_Biblioteca_ofc1
             {
                 if (Lista.SelectedIndex != -1)
                 {
-                    // Extrair o ID do cliente selecionado na lista
                     string selectedItem = Lista.SelectedItem.ToString();
-                    string idString = selectedItem.Split(':')[0]; // Extrai o ID antes do ":"
+                    string idString = selectedItem.Split(':')[0];
 
                     if (int.TryParse(idString, out int id))
                     {
-                        // Carregar os dados do cliente do banco de dados usando o ID
                         string selectQuery = $"SELECT * FROM Cliente WHERE Id = {id}";
 
                         using (var connection = connectionManager.GetConnection())
@@ -84,7 +81,6 @@ namespace Minha_Biblioteca_ofc1
                                 {
                                     if (reader.Read())
                                     {
-                                        // Preenche os TextBoxes com os valores do cliente
                                         Nome.Text = reader["Nome"].ToString();
                                         CPF.Text = reader["CPF"].ToString();
                                         Email.Text = reader["Email"].ToString();
@@ -140,6 +136,7 @@ namespace Minha_Biblioteca_ofc1
         private void CarregarTodosClientes()
         {
             string selectQuery = "SELECT * FROM Cliente";
+
             DataTable dtClientes = new DataTable();
 
             using (var connection = connectionManager.GetConnection())
@@ -160,7 +157,6 @@ namespace Minha_Biblioteca_ofc1
             foreach (DataRow row in dtClientes.Rows)
             {
                 string clienteInfo = $"ID: {row["Id"]}, Nome: {row["Nome"]}, CPF: {row["CPF"]}";
-                //MessageBox.Show(clienteInfo);
             }
 
             dataGridView_Clientes.DataSource = dtClientes;
@@ -173,13 +169,10 @@ namespace Minha_Biblioteca_ofc1
             foreach (DataRow row in dtClientes.Rows)
             {
                 string clienteInfo = $"ID: {row["Id"]}, Nome: {row["Nome"]}, CPF: {row["CPF"]}";
-                //MessageBox.Show(clienteInfo);
             }
 
-            // Defina o DataSource do DataGridView
             dataGridView_Clientes.DataSource = dtClientes;
 
-            // Verifique se há dados
             if (dtClientes.Rows.Count == 0)
             {
                 MessageBox.Show("Nenhum cliente encontrado.");
@@ -214,7 +207,6 @@ namespace Minha_Biblioteca_ofc1
 
                 using (var command = new SqliteCommand(selectQuery, connection))
                 {
-                    // command.Parameters.AddWithValue("@Busca", "%" + nomeOuCpf + "%");
 
                     using (var reader = command.ExecuteReader())
                     {
@@ -228,7 +220,6 @@ namespace Minha_Biblioteca_ofc1
             foreach (DataRow row in dtClientes.Rows)
             {
                 string clienteInfo = $"ID: {row["Id"]}, Nome: {row["Nome"]}, CPF: {row["CPF"]}";
-                //MessageBox.Show(clienteInfo);
             }
 
             dataGridView_Clientes.DataSource = dtClientes;
@@ -258,7 +249,6 @@ namespace Minha_Biblioteca_ofc1
 
                 if (int.TryParse(idString, out int id))
                 {
-                    // Atualizar os dados do cliente no banco de dados
                     string updateQuery = $"UPDATE Cliente SET Nome = @Nome, CPF = @CPF, Email = @Email, Telefone = @Telefone, Endereço = @Endereço WHERE Id = @Id";
 
                     using (var connection = connectionManager.GetConnection())
@@ -329,6 +319,12 @@ namespace Minha_Biblioteca_ofc1
                 {
                     MessageBox.Show("Selecione um cliente para excluir.");
                 }
+
+                Nome.Text = string.Empty;
+                CPF.Text = string.Empty;
+                Email.Text = string.Empty;
+                Telefone.Text = string.Empty;
+                Endereço.Text = string.Empty;
             }
         }
     }
