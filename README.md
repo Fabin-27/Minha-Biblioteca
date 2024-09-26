@@ -9,7 +9,6 @@ Tecnologias ultilizadas:
 * C#
 * Windows Forms
 * SQLite
-* Microsoft.Data.Sqlite
 
 Pré-requisitos para ultilizar o programa:
 
