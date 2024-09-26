@@ -1,7 +1,7 @@
 Sistema de Gerenciamento de clientes de uma biblioteca
 
 O SGC (Sistema de Gerenciamento de Clientes) é um projeto desenvolvido para gerir de forma clara e segura uma biblioteca que necessite
-de uma noção limpa da clientela do lugar, sua interface simples e descomplicada  permite que inserção, edição e exclusão de clientes seja concluída 
+de uma noção limpa da clientela do lugar. Sua interface simples e descomplicada  permite que a inserção, edição e exclusão de clientes seja concluída 
 com efeito imediato utilizando uma interface de Windows Forms e banco de dados SQLite.
 
 Tecnologias ultilizadas:
