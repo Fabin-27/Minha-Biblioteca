@@ -58,11 +58,46 @@ namespace Minha_Biblioteca_ofc1
         {
             if (ValidarCampos())
             {
-                String insertQuery = $"INSERT INTO Cliente (Nome, CPF, Email, Telefone, Endereço) " +
-                                     $" VALUES  ('{Nome.Text}', '{CPF.Text}', '{Email.Text}', '{Telefone.Text}', '{Endereço.Text}')";
+                string selectCpfQuery = $"SELECT COUNT(1) FROM Cliente WHERE CPF = '{CPF.Text}'";
 
-                connectionManager.ExecuteNonQuery(insertQuery);
-                Atualizar_Cadastros();
+                using (var connection = connectionManager.GetConnection())
+                {
+                    connectionManager.OpenConnection(connection);
+                    using (var command = new SqliteCommand(selectCpfQuery, connection))
+                    {
+                        var cpfExists = (long)command.ExecuteScalar();
+
+                        if (cpfExists > 0)
+                        {
+                            MessageBox.Show("Este CPF já está cadastrado no sistema.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    connectionManager.CloseConnection(connection);
+                }
+
+                String insertQuery = $"INSERT INTO Cliente (Nome, CPF, Email, Telefone, Endereço) " +
+                                     $"VALUES  ('{Nome.Text}', '{CPF.Text}', '{Email.Text}', '{Telefone.Text}', '{Endereço.Text}')";
+
+                try
+                {
+                    connectionManager.ExecuteNonQuery(insertQuery);
+
+                    Nome.Text = string.Empty;
+                    CPF.Text = string.Empty;
+                    Email.Text = string.Empty;
+                    Telefone.Text = string.Empty;
+                    Endereço.Text = string.Empty;
+
+                    Nome.Focus();
+                    Atualizar_Cadastros();
+
+                    MessageBox.Show("Cliente cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (SqliteException ex)
+                {
+                    MessageBox.Show($"Erro ao cadastrar o cliente: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
